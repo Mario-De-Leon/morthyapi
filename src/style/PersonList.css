@@ -1,0 +1,7 @@
+.caja-contenedora{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0 65px;
+}
+
