@@ -2,7 +2,7 @@ import React , { useEffect} from "react";
 import axios from "axios";
 import { Context } from "../Context";
 
-const UseGetProducts = (API) => {
+const UseGetCharacter = (API) => {
 	const {
 		personajes,
 		setPersonajes,
@@ -17,6 +17,6 @@ const UseGetProducts = (API) => {
 	}, [])
     return personajes;
 }
-export default UseGetProducts;
+export default UseGetCharacter;
 
 
