@@ -1,9 +1,9 @@
 import React from 'react';
-import ProductList from './containers/ProductList';
+import CharacterList from './containers/PersonList';
 
 function App() {
   return (
-    <ProductList/>
+    <CharacterList/>
   );
 }
 
