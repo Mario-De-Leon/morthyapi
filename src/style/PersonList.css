@@ -1,4 +1,5 @@
 .caja-contenedora{
+    background: linear-gradient(grey,aqua, black );
     display: flex;
     flex-wrap: wrap;
     gap: 15px;

@@ -22,31 +22,42 @@ const CharacterList = () => {
 	const [pages, setPages] = React.useState(1)
 
 	useEffect(()=> {
-		if(pages === personajes.info?.pages ){
+		if(personajes.info?.pages === pages ){
 			setActiveSiguiente(true)
-		}else if(pages === 1){
+		}if(pages === 1){
 			setActiveAnterior(true)
 		}
 	},[pages])
 
+	
 	async function siguiente()  {
-		
-		if(personajes.info.next != null){
-			setActiveAnterior(true)
-			setPages(pages + 1)
-			let listo =  await axios(personajes.info.next)
-			setPersonajes(listo.data)
-			setActiveAnterior(false)
+			if(personajes.info.next != null){
+				setActiveAnterior(true)
+				setActiveSiguiente(true)
+				let listo =  await axios(personajes.info.next)
+				setTimeout(() => {
+					setPersonajes(listo.data)
+					setActiveAnterior(false)
+					setActiveSiguiente(false)
+					setPages(pages + 1)
+				},1000 );
+			}
 		}
-	}
+	
 	
 	async function anterior()  {
 		if(personajes.info.prev != null){
 			setActiveSiguiente(true)
-			setPages(pages - 1)
+			setActiveAnterior(true)	
 			let listo =  await axios(personajes.info.prev)
-			setPersonajes(listo.data)
-			setActiveSiguiente(false)
+			setTimeout(() => {
+				
+				setPersonajes(listo.data)
+				setActiveSiguiente(false)
+				setActiveAnterior(false)
+				setPages(pages - 1)
+			}, 1000);
+			
 		}
 	}
 	return (
